@@ -15,6 +15,12 @@ public class Helper {
         a[j] = x;
     }
 
+    public static void swapLongs(long[] a, int i, int j) {
+        long x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+
     public static int[] genRandomPerm(int n) {
         int[] a = new int[n];
         for (int i = 0; i < a.length; i++) {
@@ -23,6 +29,19 @@ public class Helper {
         for (int i = a.length - 1; i > 0; i--) {
             int j = r.nextInt(i + 1);
             Helper.swap(a, i, j);
+        }
+        return a;
+    }
+
+    public static long[] genRandomLongs(int length){
+        Random r = ThreadLocalRandom.current();
+        long[] a = new long[length];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = i;
+        }
+        for (int i = a.length - 1; i > 0; i--) {
+            int j = r.nextInt(i + 1);
+            Helper.swapLongs(a, i, j);
         }
         return a;
     }

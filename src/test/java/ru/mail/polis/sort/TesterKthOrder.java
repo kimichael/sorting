@@ -51,17 +51,14 @@ public class TesterKthOrder {
                 Helper.genMaxMin(10),
                 Helper.genMaxMin(100),
                 Helper.genMaxMin(1000),
-                Helper.genMaxMin(10000),
                 Helper.genHalfMax(1),
                 Helper.genHalfMax(10),
                 Helper.genHalfMax(100),
                 Helper.genHalfMax(1000),
-                Helper.genHalfMax(10000),
                 Helper.genZeros(1),
                 Helper.genZeros(10),
                 Helper.genZeros(100),
                 Helper.genZeros(1000),
-                Helper.genZeros(10000),
         });
     }
 
@@ -70,6 +67,16 @@ public class TesterKthOrder {
         Random r = ThreadLocalRandom.current();
         int position = r.nextInt(array.length);
         int k = KthElement.kthElement(array, position);
+        Arrays.sort(array);
+        Assert.assertEquals(k, array[position]);
+
+    }
+
+    @Test
+    public void test02_checkKthOrderModified() throws IOException {
+        Random r = ThreadLocalRandom.current();
+        int position = r.nextInt(array.length);
+        int k = KthElementModified.kthLinear(array, 0, array.length - 1, position + 1);
         Arrays.sort(array);
         Assert.assertEquals(k, array[position]);
 

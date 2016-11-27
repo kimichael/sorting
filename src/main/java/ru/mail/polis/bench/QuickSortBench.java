@@ -24,7 +24,7 @@ public class QuickSortBench {
 
     @Setup(value = Level.Invocation)
     public void setUpInvocation() {
-        array = Helper.genBackwards(1000);
+        array = EightAntiQS.genQuickWorst(1000);
     }
 
     @Benchmark

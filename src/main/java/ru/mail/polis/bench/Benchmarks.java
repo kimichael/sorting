@@ -21,7 +21,7 @@ public class Benchmarks {
     /**{Helper.genRandomPerm(1000), MergeWorstCase.genMergeWorst(1000),
      Helper.genBackwards(1000),Helper.genSorted(1000)};*/
     public void setUpInvocation() {
-        array = Helper.genZeros(1000);
+        array = Helper.genRandomPerm(1000);
     }
 
     @Benchmark

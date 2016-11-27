@@ -6,7 +6,7 @@ public class MergeWorstCase {
 
     public static int[] genMergeWorst(int n){
         int ar[]= Helper.genSorted(n);
-        seperate(ar);
+        separate(ar);
         return ar;
     }
 
@@ -25,8 +25,7 @@ public class MergeWorstCase {
             arr[i]=right[j];
     }
 
-    //Pass a sorted array here
-    public static void seperate(int[] arr) {
+    public static void separate(int[] arr) {
 
         if(arr.length<=1)
             return;
@@ -44,20 +43,20 @@ public class MergeWorstCase {
         int left[] = new int[m];
         int right[] = new int[arr.length-m];
 
-        for(i=0,j=0;i<arr.length;i=i+2,j++) //Storing alternate elements in left subarray
+        for(i=0,j=0;i<arr.length;i=i+2,j++)
             left[j]=arr[i];
 
-        for(i=1,j=0;i<arr.length;i=i+2,j++) //Storing alternate elements in right subarray
+        for(i=1,j=0;i<arr.length;i=i+2,j++)
             right[j]=arr[i];
 
-        seperate(left);
-        seperate(right);
+        separate(left);
+        separate(right);
         merge(arr, left, right);
     }
     public static void main(String args[])
     {
         int arr1[]= Helper.genSorted(1000);
-        seperate(arr1);
+        separate(arr1);
         System.out.print("For array 1:");
         print(arr1);
     }
