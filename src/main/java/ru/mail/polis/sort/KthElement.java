@@ -12,6 +12,14 @@ import static ru.mail.polis.sort.Helper.swap;
  */
 public class KthElement {
 
+    public static int[] sort(int[] ar){
+        if (ar == null) {return new int[]{}; }
+        for (int i = 0; i < ar.length; i++){
+            kthElement(ar, i);
+        }
+        return ar;
+    }
+
     public static int kthElement(int[] ar, int k) {
         if (ar == null){return -1;}
         int left = 0;

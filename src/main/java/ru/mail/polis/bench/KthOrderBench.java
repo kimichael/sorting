@@ -26,17 +26,17 @@ public class KthOrderBench {
     @Setup(value = Level.Invocation)
     //{Helper.genRandomPerm(1000), MergeWorstCase.genMergeWorst(1000), Helper.genBackwards(1000),Helper.genSorted(1000)};
     public void setUpInvocation() {
-        array = Helper.genSorted(1000);
+        array = Helper.genBackwards(10000);
     }
 
     @Benchmark
     public void measureKthOrder(Blackhole bh) {
-        bh.consume(KthElement.kthElement(array, r.nextInt(array.length)));
+        bh.consume(KthElement.sort(array));
     }
 
     @Benchmark
     public void measureKthOrderModified(Blackhole bh) {
-        bh.consume(KthElementModified.kthLinear(array, 0, array.length -1, r.nextInt(array.length)));
+        bh.consume(KthElementModified.sort(array));
     }
 
     public static void main(String[] args) throws RunnerException {

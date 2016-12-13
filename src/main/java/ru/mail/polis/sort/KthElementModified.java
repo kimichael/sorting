@@ -1,5 +1,7 @@
 package ru.mail.polis.sort;
 
+import java.util.Arrays;
+
 /**
  * Created by iters on 11/19/16.
  */
@@ -40,6 +42,12 @@ public class KthElementModified {
             return kthLinear(ar, pos+1, right, k-pos+left-1);
         }
         return -1;
+    }
+
+    public static int[] sort(int[] ar){
+        if (ar == null) {return new int[]{};}
+        sort(ar, 0, ar.length);
+        return ar;
     }
 
     private static void sort(int[] ar, int left, int right) {
